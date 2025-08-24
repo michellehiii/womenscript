@@ -11,7 +11,7 @@
     // ===== Config =====
     const AUTO_FULLSCREEN = false;   // do NOT auto-enter fullscreen
     const COMPACT_BREAKPOINT = 420;  // px; compact labels below this
-    const DEFAULT_ZOOM = 1;        // starting zoom (also used by Reset)
+    const DEFAULT_ZOOM = 1;          // starting zoom (also used by Reset)
     const ZOOM_MIN = 0.5;
     const ZOOM_MAX = 4;
     const ZOOM_STEP = 0.1;
@@ -323,6 +323,16 @@
     // ===== Controls =====
     closePanelBtn?.addEventListener('click', closePanel);
     panel.addEventListener('click', e => { if (!e.target.closest('.panel__dialog')) closePanel(); });
+
+    // ⬅️➡️ Hook up Prev/Next buttons
+    prevBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      prevPage();
+    });
+    nextBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      nextPage();
+    });
 
     // --- Zoom helpers so all buttons (Chinese or +/-) call the same thing ---
     function doZoomIn()  { zoom = Math.min(ZOOM_MAX, zoom + ZOOM_STEP); applyZoom(); }
