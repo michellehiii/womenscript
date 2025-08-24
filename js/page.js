@@ -1,4 +1,41 @@
-// Half-page flipbook: right side flips; left side shows the latest turned back face
+// ==========================
+// Breadcrumb: back-with-fallback
+// ==========================
+(function () {
+  const backLink = document.querySelector('[data-back]');
+  if (!backLink) return;
+
+  // Fallback destination when there's no usable history entry
+  const FALLBACK_URL = backLink.getAttribute('href') || 'about.html';
+
+  function sameOrigin(u) {
+    try { return new URL(u, location.href).origin === location.origin; }
+    catch { return false; }
+  }
+
+  function goBackWithFallback(e) {
+    e.preventDefault();
+
+    // Navigation entry (for redirect detection)
+    const nav = performance.getEntriesByType('navigation')[0];
+    const cameFromRedirect = !!(nav && nav.redirectCount > 0);
+
+    const hasHistory = history.length > 1;
+    const hasReferrer = !!document.referrer && sameOrigin(document.referrer);
+
+    if (!cameFromRedirect && hasHistory && hasReferrer) {
+      history.back();
+    } else {
+      location.href = FALLBACK_URL;
+    }
+  }
+
+  backLink.addEventListener('click', goBackWithFallback);
+})();
+
+// ==========================
+// Half-page Flipbook Logic
+// ==========================
 
 // Controls
 const prevBtn = document.getElementById('prev-btn');
@@ -28,13 +65,7 @@ function updateBookStateClasses() {
 /**
  * If the book has an odd total number of pages, ensure the final spread
  * shows a white blank on the left by guaranteeing the LAST leaf's .back face
- * has *some* content (or a clean white background if missing).
- *
- * In your structure:
- *   - .leaf .front  = right page (odd page number)
- *   - .leaf .back   = left page (even page number) revealed after turning
- *
- * If the last .back is empty (no <img> or content), we inject a blank.
+ * has some content (or a clean white background if missing).
  */
 function ensureEvenPages() {
   if (leaves.length === 0) return;
@@ -43,45 +74,29 @@ function ensureEvenPages() {
   const back = lastLeaf.querySelector('.back');
   if (!back) return;
 
-  // Detect if there's meaningful content in the back face
-  const hasImage = back.querySelector('img, picture, video, canvas, svg');
-  const hasNonWhitespace = back.textContent && back.textContent.trim().length > 0;
+  const hasMedia = back.querySelector('img, picture, video, canvas, svg');
+  const hasText = back.textContent && back.textContent.trim().length > 0;
 
-  if (!hasImage && !hasNonWhitespace) {
-    // Make this face a clean blank page
-    back.innerHTML = '';                 // ensure no stray nodes
-    back.style.background = '#fff';      // white background
-    back.style.borderLeft = '1px solid var(--page-border)';
-    // Optional small watermark for debugging; comment out when done:
-    // const note = document.createElement('div');
-    // note.style.position = 'absolute';
-    // note.style.bottom = '8px';
-    // note.style.left = '12px';
-    // note.style.fontSize = '12px';
-    // note.style.opacity = '.35';
-    // note.textContent = '(blank)';
-    // back.appendChild(note);
+  if (!hasMedia && !hasText) {
+    back.innerHTML = '';
+    back.style.background = '#fff';
+    back.style.borderLeft = '1px solid var(--page-border, #ddd)';
   }
 }
 
 /**
  * Stacking rules:
  * - Unturned leaves (i >= index): high z-index so the current right page is on top.
- *   The next-to-turn leaf (i === index) must be the highest of all.
- * - Turned leaves (i < index): lower z-index tiers; the most recently turned (i === index-1)
- *   should be highest among turned so it covers older left pages.
+ * - Turned leaves (i < index): lower z-index; the most recently turned highest among them.
  */
 function setStacking() {
   const N = leaves.length;
   leaves.forEach((leaf, i) => {
     if (i < index) {
-      // Already turned (left stack). Newest turned on top.
       leaf.style.zIndex = String(i + 1); // 1..index
     } else {
-      // Not yet turned (right stack). Next-to-turn highest overall.
       leaf.style.zIndex = String(100 + (N - i)); // 100+N .. 101
     }
-    // Flip pivot at the spine (left edge of the right half)
     leaf.style.transformOrigin = 'left center';
   });
 }
@@ -105,7 +120,7 @@ function goPrev() {
 }
 
 // --- Init ---
-ensureEvenPages();      // add a blank if needed
+ensureEvenPages();
 setStacking();
 updateButtons();
 updateBookStateClasses();
@@ -135,6 +150,7 @@ if (!book || leaves.length === 0) {
 // Show/hide prev & next buttons only when book is in view
 const flipbookObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
+    if (!prevBtn || !nextBtn) return;
     if (entry.isIntersecting) {
       prevBtn.style.display = "block";
       nextBtn.style.display = "block";
@@ -143,7 +159,7 @@ const flipbookObserver = new IntersectionObserver((entries) => {
       nextBtn.style.display = "none";
     }
   });
-}, { threshold: 0.2 }); // at least 20% of book visible
+}, { threshold: 0.2 });
 
 if (book) {
   flipbookObserver.observe(book);
