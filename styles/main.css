@@ -110,7 +110,7 @@ nav ul.menu li a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.6);
   z-index: 1;
 }
 .title-inner{
@@ -140,11 +140,9 @@ nav ul.menu li a {
   z-index: 999;      /* above everything else */
   
   padding: 6px 12px;
-  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-size: 14px;
   line-height: 1.4;
-  border-top-right-radius: 4px; /* optional polish */
 }
 
 /* Buttons */
@@ -277,6 +275,7 @@ nav ul.menu li a[aria-current="page"] {
     background:#fff; color:#000;
   }
 }
+
 
 
 
