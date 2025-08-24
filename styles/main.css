@@ -110,7 +110,7 @@ nav ul.menu li a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.5);
   z-index: 1;
 }
 .title-inner{
@@ -132,6 +132,15 @@ nav ul.menu li a {
   z-index: 2;
   font-size: 20px;
   font-weight: 600;
+}
+.caption {
+  position: absolute;
+  bottom: 0;     /* sticks to the bottom */
+  left: 0;       /* sticks to the left */
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.6); /* optional for contrast */
+  color: #fff;
+  font-size: 14px;
 }
 
 /* Buttons */
@@ -264,4 +273,5 @@ nav ul.menu li a[aria-current="page"] {
     background:#fff; color:#000;
   }
 }
+
 
