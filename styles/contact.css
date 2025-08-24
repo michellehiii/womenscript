@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
+
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Base */
+body {
+  background: #fff;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+/* Header */
+header {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem 0;
+  position: relative;
+}
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* thickness of the shade */
+  background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+}
+
+/* Container */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+/* Nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;                 /* allow wrapping when tight */
+  row-gap: .25rem;
+}
+nav a[aria-current="page"] {
+  color: #c0392b;
+  font-weight: 600;
+}
+nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0,0,0,1);
+}
+.logo span {
+  font-size: 2rem;
+}
+
+/* Default Menu (desktop) */
+nav ul.menu {
+  display: flex;
+  list-style: none;
+  gap: .25rem .5rem;
+  flex-wrap: wrap;                 /* prevent overflow */
+}
+nav ul.menu li {
+  margin: 0 .4rem;
+  align-items: center;
+  padding: .5rem .5rem;
+}
+nav ul.menu li a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 2.5px;
+  color: rgba(0,0,0,1);
+  padding: .7rem 1rem;
+}
+
+/* Hamburger toggle setup */
+#menu-toggle {
+  display: none;
+}
+.menu-icon {
+  display: none; /* hidden by default (desktop) */
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  color: #000;
+  padding: .5rem;
+}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding: 0.7rem 1.1rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0;
+  transition: transform .15s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease;
+  font-size: clamp(14px, 2.8vw, 16px);
+}
+.btn-outline-white{
+  border: 2px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+.btn-outline-white:hover{
+  background:#fff;
+  color:#000;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  transform: translateY(-1px);
+}
+.btn-solid-white{
+  border: 2px solid #fff;
+  background:#fff;
+  color:#000;
+}
+.btn-solid-white:hover{
+  filter: brightness(0.95);
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  transform: translateY(-1px);
+}
+.btn:focus-visible{
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.contact-container{
+  height: 100vh;
+  display:flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.contact-left {
+  display:flex;
+  flex-direction: column;
+  align-items: start;
+  gap:20px;
+}
+
+.contact-left-title h2 {
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.contact-left-title hr {
+  border: none;
+  width: 120px;
+  height: 5px;
+  background-color: #000;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-inputs {
+  width:400px;
+  height:50px;
+  border:none;
+  outline:none;
+  padding-left: 25px;
+  font-weight: 500px;
+  color:#666;
+  border-radius: 50px;
+  background-color: #f0eeee;
+}
+
+.contact-left textarea {
+  height:140px;
+  padding-top: 15px;
+  border-radius: 20px;
+  background-color: #f0eeee;
+}
+
+.contact-inputs:focus {
+  border:2px solid #c0392b;
+  background-color: #fff;
+}
+
+.contact-inputs::placeholder {
+  color:#a9a9a9;
+}
+
+.contact-right img {
+  max-width: 100%;
+  width: 50%;
+  height: auto;
+  display: block; 
+  width: 500px;
+}
+
+.contact-left button {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  font-size: 16px;
+  color: #fff;
+  gap:10px;
+  border: none;
+  border-radius: 50px;
+  background-color: #c0392b;
+  cursor: pointer;
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width: 900px){
+  .container { padding: 0 1rem; }
+
+  nav ul.menu li a{
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    padding: .5rem .6rem;
+  }
+}
+
+/* --- Mobile hamburger menu --- */
+@media (max-width: 768px) {
+  /* show hamburger */
+  .menu-icon {
+    display: block;
+  }
+
+  /* hide menu by default */
+  nav ul.menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    position: absolute;
+    top: 100%;   /* below header */
+    left: 0;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+  nav ul.menu li {
+    margin: .5rem 0;
+  }
+  nav ul.menu li a {
+    display: block;
+    padding: .75rem;
+    font-size: 1.1rem;
+  }
+
+  /* when checked, show menu */
+  #menu-toggle:checked ~ ul.menu {
+    display: flex;
+  }
+
+  /* logo margin reset on phones */
+  .logo span { margin-left: 0; }
+  .page_title { padding: 16vh 1rem 2rem; }
+}
+
+/* Default: everything in the header stays black */
+nav .logo,
+.menu-icon,
+nav ul.menu li a {
+  color: #000;
+}
+
+/* Only the current page link is red */
+nav ul.menu li a[aria-current="page"] {
+  color: #c0392b;
+  font-weight: 700;
+}
+
+/* Keep the same behavior in the mobile dropdown */
+@media (max-width: 768px) {
+  nav ul.menu li a { color: #000; }
+  nav ul.menu li a[aria-current="page"] { color: #c0392b; }
+}
+
+@media(max-width: 800px){
+  .contact-inputs {
+    width:80vw;
+  }
+  .contact-right {
+    display:none;
+  }
+}
