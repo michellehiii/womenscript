@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Women Script</title>
+    <link rel="stylesheet" href="../styles/contact.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <h2><span>w</span>omenScript</h2>
+          </div>
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+          <ul class="menu">
+            <li><a href="index.html">主页</a></li>
+            <li><a href="about.html">介绍</a></li>
+            <li><a href="books.html">书籍</a></li>
+            <li><a href="contact.html"aria-current="page">联系</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="contact-container">
+      <form action="https://api.web3forms.com/submit" method="POST" class="contact-left" autocomplete="off">
+        <div class="contact-left-title">
+          <h2>联系我们</h2>
+          <hr>
+        </div>
+        <input type="hidden" name="access_key" value="47b89a12-0092-40e9-a139-014bda4ef2d1">
+        <input type="text" name="name" placeholder="您的名字" class="contact-inputs" required>
+        <input type="text" name="email" placeholder="您的邮箱" class="contact-inputs" required>
+        <textarea name="message" placeholder="您的讯息" class="contact-inputs" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div class="contact-right">
+        <img src="/assets/img.jpg">
+      </div>
+    </div>
+    <script src="../js/home.js"></script>
+  </body>
+</html>

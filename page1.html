@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Women Script</title>
+    <link rel="stylesheet" href="../styles/page.css" />
+    <script src="../js/page.js" defer></script>
+    <script src="https://kit.fontawesome.com/2cabab67da.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <h2><span>w</span>omenScript</h2>
+          </div>
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="menu-icon">&#9776;</label>
+          <ul class="menu">
+            <li><a href="index.html">主页</a></li>
+            <li><a href="about.html">介绍</a></li>
+            <li><a href="books.html">书籍</a></li>
+            <li><a href="contact.html">联系</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <ol>
+        <li>womenscript</li>
+        <li><a href="javascript:history.back()">介绍</a></li>
+        <li aria-current="page"><a href="page1.html">书信</a></li>
+      </ol>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page_title">
+      <h1>书信</h1>
+    </div>
+
+    <!-- Intro Content -->
+    <section class="content">
+      <h2>贺三朝书介绍</h2>
+      <p>
+        在当地传统婚俗里，新娘出嫁后的第三天，会举行回门仪式，称作“三朝”。此时，新娘的女友们会用女书书写贺三朝书，并带着它和其他礼物前往新郎家，在贺三朝仪式上唱读这些书信。        
+        <br /><br />
+        贺三朝书包含对新娘的赞美与祝福，如夸赞新娘的美貌、善良和勤劳，祝福她在新的家庭中生活幸福、婚姻美满。同时，也会回忆与新娘过去相处的美好时光，如一起做女红、玩耍、倾诉心事等，表达对新娘的不舍之情以及对彼此友谊的珍视。此外，还可能会有一些对新娘在新家庭中为人处世的建议，教导她如何孝顺公婆、和睦邻里等。
+        <br /><br />
+        贺三朝书是江永女书文化的重要载体之一，它生动地反映了当地的婚姻习俗和女性文化。通过这些书信，人们可以了解到当时女性的生活状态、情感世界以及她们之间深厚的情谊。同时，贺三朝书也是研究江永女书文字、语言特点和书写风格的重要资料，对于传承和保护江永女书这一独特的文化遗产具有重要意义。
+      </p>
+    </section>
+
+    <!-- Book Heading -->
+    <div class="book_heading">
+      <h2>书信内容</h2>
+    </div>
+
+    <!-- Flipbook -->
+    <section class="flipbook">
+      <!-- Previous Button -->
+      <button id="prev-btn"aria-label="Previous page">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <!-- Book -->
+      <div id="book" class="book">
+        
+        <!-- Leaf 1 -->
+        <div class="leaf" id="leaf-1">
+          <div class="face front">
+            <img class="page-image" src="../1/1-images-0.jpg" alt="Front Cover">
+          </div>
+          <div class="face back">
+            <img class="page-image" src="../1/1-images-1.jpg" alt="Page 2">
+          </div>
+        </div>
+
+        <!-- Leaf 2 -->
+        <div class="leaf" id="leaf-2">
+          <div class="face front">
+            <img class="page-image" src="../1/1-images-2.jpg" alt="Page 3">
+          </div>
+          <div class="face back">
+            <img class="page-image" src="../1/1-images-3.jpg" alt="Page 4">
+          </div>
+        </div>
+
+        <!-- Leaf 3 -->
+        <div class="leaf" id="leaf-3">
+          <div class="face front">
+            <img class="page-image" src="../1/1-images-4.jpg" alt="Page 5">
+          </div>
+          <div class="face back">
+            <img class="page-image" src="../1/1-images-5.jpg" alt="Page 6">
+          </div>
+        </div>
+
+        <!-- Leaf 4 -->
+        <div class="leaf" id="leaf-3">
+          <div class="face front">
+            <img class="page-image" src="../1/1-images-6.jpg" alt="Page 5">
+          </div>
+          <div class="face back">
+            <img class="page-image" src="../1/1-images-7.jpg" alt="Page 6">
+          </div>
+        </div>
+
+        <!-- Leaf 5 -->
+        <div class="leaf" id="leaf-3">
+          <div class="face front">
+            <img class="page-image" src="../1/1-images-8.jpg" alt="Page 5">
+          </div>
+          <div class="face back">
+            <img class="page-image" src="../1/1-images-9.jpg" alt="Page 6">
+          </div>
+        </div>
+
+        <!-- Leaf 6 -->
+        <div class="leaf" id="leaf-4">
+          <div class="face front">
+            <img class="page-image" src="../1/1-images-10.jpg" alt="Page 7">
+          </div>
+          <div class="face back">
+            <div class="paper blank"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Next Button -->
+      <button id="next-btn">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+  </body>
+</html>

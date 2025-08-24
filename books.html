@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Women Script</title>
+
+    <!-- Paths assume: /styles/books.css and /js/books.js -->
+    <link rel="stylesheet" href="styles/books.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <h2><span>w</span>omenScript</h2>
+          </div>
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+          <ul class="menu">
+            <li><a href="index.html">主页</a></li>
+            <li><a href="about.html">介绍</a></li>
+            <li><a href="books.html" aria-current="page">书籍</a></li>
+            <li><a href="contact.html">联系</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container_books">
+      <h1 class="books__title">书库</h1>
+
+      <section class="shelf" id="shelf">
+        <!-- Example 1: numbered images -->
+        <article class="book" tabindex="0" role="button"
+                 aria-label="Open Book One"
+                 data-title="七儿歌"
+                 data-pages='[
+                   "../七儿歌/1.jpg",
+                   "../七儿歌/2.jpg",
+                   "../七儿歌/3.jpg",
+                   "../七儿歌/4.jpg",
+                   "../七儿歌/5.jpg",
+                   "../七儿歌/6.jpg",
+                   "../七儿歌/7.jpg",
+                   "../七儿歌/8.jpg",
+                   "../七儿歌/9.jpg",
+                   "../七儿歌/10.jpg",
+                   "../七儿歌/11.jpg",
+                   "../七儿歌/12.jpg",
+                   "../七儿歌/13.jpg",
+                   "../七儿歌/14.jpg",
+                   "../七儿歌/15.jpg",
+                   "../七儿歌/16.jpg",
+                   "../七儿歌/17.jpg",
+                   "../七儿歌/18.jpg",
+                   "../七儿歌/19.jpg",
+                   "../七儿歌/20.jpg",
+                   "../七儿歌/21.jpg",
+                   "../七儿歌/22.jpg",
+                   "../七儿歌/23.jpg",
+                   "../七儿歌/24.jpg",
+                   "../七儿歌/25.jpg",
+                   "../七儿歌/26.jpg",
+                   "../七儿歌/27.jpg"
+                 ]'
+                 data-page-w="15.26" data-page-h="22">
+          <img class="book__cover" src="../cover/1.jpg" alt="Cover of Book One" />
+          <h3 class="book__title">七儿歌</h3>
+          <p class="book__author">Author A</p>
+        </article>
+      
+        <article class="book" tabindex="0" role="button" 
+          aria-label="Open Book Two" 
+          data-title="八谜语"
+          data-pages-prefix="../028-073/"
+          data-pages-count="46"
+          data-pages-ext="jpg"
+          data-start="1"
+          data-page-w="15.26" data-page-h="22">
+          <img class="book__cover" src="../cover/1.jpg" alt="Cover of Book Two" />
+          <h3 class="book__title">八谜语</h3>
+          <p class="book__author">Author B</p>
+        </article>
+
+        <!-- Example 3: custom list -->
+        <article class="book" tabindex="0" role="button" 
+          aria-label="Open Book Three" 
+          data-title="九祷神诗"
+          data-pages-prefix="../074-079/"
+          data-pages-count="6"
+          data-pages-ext="jpg"
+          data-start="1"
+          data-page-w="15.26" data-page-h="22">
+          <img class="book__cover" src="../cover/1.jpg" alt="Cover of Book Three" />
+          <h3 class="book__title">九祷神诗</h3>
+          <p class="book__author">Author C</p>
+        </article>
+
+        <!-- Example 4: custom list -->
+        <article class="book" tabindex="0" role="button" 
+          aria-label="Open Book Four" 
+          data-title="十唱本"
+          data-pages-pattern="../080-670/{range}/{num}.jpg"
+          data-pages-count="591"
+          data-pages-per-folder="50"
+          data-global-start="1"
+          data-zero-pad="0"
+          data-range-pad="3"
+          data-numbering="local"
+          data-page-w="15.26" data-page-h="22">
+          <img class="book__cover" src="../cover/1.jpg" alt="Cover of Book Four" />
+          <h3 class="book__title">十唱本</h3>
+          <p class="book__author">Author D</p>
+        </article>
+
+        <!-- Example 5: custom list -->
+        <article class="book" tabindex="0" role="button" 
+          aria-label="Open Book Five" 
+          data-title="古诗三首"
+          data-pages-pattern="../671-887/{range}/{num}.jpg"
+          data-pages-count="217"
+          data-pages-per-folder="50"
+          data-global-start="1"
+          data-zero-pad="0"
+          data-range-pad="3"
+          data-numbering="local"
+          data-page-w="15.26" data-page-h="22">
+          <img class="book__cover" src="../cover/1.jpg" alt="Cover of Book Five" />
+          <h3 class="book__title">古诗三首</h3>
+          <p class="book__author">Author E</p>
+        </article>
+
+        <!-- Duplicate more <article class="book"> for additional titles -->
+      </section>
+    </main>
+
+    <!-- Slide-in Flipbook Panel -->
+    <section class="panel" id="flipPanel" aria-hidden="true" aria-labelledby="panelTitle" role="dialog">
+      <div class="panel__dialog">
+        <div class="panel__bar">
+          <h2 class="panel__title" id="panelTitle">—</h2>
+          <span class="panel__meta" id="panelMeta">Page — / —</span>
+          <button id="closePanel" class="btn btn--accent" type="button" aria-label="Close">关闭</button>
+        </div>
+
+        <div class="flipbook" aria-live="polite">
+          <div class="flipbook__pages">
+            <div class="flipbook__page" id="pageLeft"></div>
+            <div class="flipbook__page" id="pageRight"></div> <!-- kept for compatibility; hidden via CSS -->
+          </div>
+
+          <!-- Controls: nav (left) + zoom/fullscreen (right) -->
+          <!-- Controls: nav (left) + zoom / reset / fullscreen (right) -->
+          <div class="flipbook__controls">
+            <div class="ctrl-group">
+              <button class="flip-btn" id="prevBtn" type="button">上一页</button>
+              <span class="flipbook__counter" id="counterText">Page — / —</span>
+              <button class="flip-btn" id="nextBtn" type="button">下一页</button>
+              <button class="flip-btn" id="gotoBtn" type="button">跳页</button>
+
+            </div>
+            <div class="ctrl-group">
+              <button class="flip-btn" id="zoomOut" type="button">缩小 −</button>
+              <span id="zoomLabel" aria-live="polite">140%</span>
+              <button class="flip-btn" id="zoomIn" type="button">放大 +</button>
+              <button class="flip-btn" id="resetZoom" type="button">重置</button>
+              <button class="flip-btn" id="maximizeBtn" type="button">全屏</button>
+              <button class="flip-btn" id="minimizeBtn" type="button" disabled>退出</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Your JS -->
+    <script src="js/books.js?v=9" defer></script>
+  </body>
+</html>

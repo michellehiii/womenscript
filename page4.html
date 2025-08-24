@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Women Script</title>
+    <link rel="stylesheet" href="../styles/page4.css" />
+    <script src="../js/page.js" defer></script>
+    <script src="https://kit.fontawesome.com/2cabab67da.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <h2><span>w</span>omenScript</h2>
+          </div>
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="menu-icon">&#9776;</label>
+          <ul class="menu">
+            <li><a href="index.html">主页</a></li>
+            <li><a href="about.html">介绍</a></li>
+            <li><a href="books.html">书籍</a></li>
+            <li><a href="contact.html">联系</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <ol>
+        <li>womenscript</li>
+        <li><a href="javascript:history.back()">介绍</a></li>
+        <li aria-current="page"><a href="page4.html">柬贴</a></li>
+      </ol>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page_title">
+      <h1>柬贴</h1>
+    </div>
+
+    <!-- Book Heading -->
+    <div class="book_heading">
+      <h2>柬贴内容展示</h2>
+    </div>
+
+    <!-- Flipbook -->
+    <section class="flipbook">
+      <!-- Previous Button -->
+      <button id="prev-btn"aria-label="Previous page">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <!-- Book -->
+      <div id="book" class="book">
+        
+        <!-- Leaf 1 -->
+        <div class="leaf" id="leaf-1">
+          <div class="face front">
+            <img class="page-image" src="../4/1.jpg" alt="Front Cover">
+          </div>
+          <div class="face back">
+            <img class="page-image" src="../4/2.jpg" alt="Page 2">
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Button -->
+      <button id="next-btn">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+  </body>
+</html>
