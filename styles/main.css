@@ -110,7 +110,7 @@ nav ul.menu li a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.8);
   z-index: 1;
 }
 .title-inner{
@@ -134,13 +134,17 @@ nav ul.menu li a {
   font-weight: 600;
 }
 .caption {
-  position: absolute;
-  bottom: 0;     /* sticks to the bottom */
-  left: 0;       /* sticks to the left */
+  position: fixed;   /* fixed to the viewport */
+  bottom: 0;         /* stick to bottom */
+  left: 0;           /* stick to left */
+  z-index: 999;      /* above everything else */
+  
   padding: 6px 12px;
-  background: rgba(0, 0, 0, 0.6); /* optional for contrast */
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-size: 14px;
+  line-height: 1.4;
+  border-top-right-radius: 4px; /* optional polish */
 }
 
 /* Buttons */
@@ -273,5 +277,6 @@ nav ul.menu li a[aria-current="page"] {
     background:#fff; color:#000;
   }
 }
+
 
 
